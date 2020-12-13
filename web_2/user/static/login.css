@@ -1,0 +1,33 @@
+body{
+  		background-color: #e1e1ea;
+  	}
+  .head-top{
+    background-image: url(../image/img_3.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  .head-top h1{
+    color: #ff6666;
+  }
+  .foot-bottom{
+    margin-bottom:0;
+  }
+    .login-form{
+      border: 1px solid #33cccc; 
+      border-radius: 15px;
+      margin-top: 20px;
+      padding: 30px;
+      background-color: #fff;
+      width: 600px;
+    }
+    h2{
+    	color: #007bff;
+    }
+    .form-control{
+    	background-color: #ccc;
+    	width: 100%;
+    }
+    .submit-btn{
+    	width: 100%;
+    	margin-top: 20px;
+    }
