@@ -2,10 +2,14 @@
     require_once '../database/config.php';
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
       if(!empty($_POST)){
-        $name = $_POST['name'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $re_pwd = $_POST['psw-repeat'];
+        $con = mysqli_connect("localhost","root","","myblog");
+
+        $name = mysqli_real_escape_string($con,$_POST['name']);
+        $password = mysqli_real_escape_string($con,$_POST['password']);
+        $password = hash('md5', $password);
+        $email = mysqli_real_escape_string($con,$_POST['email']);
+        $re_pwd = mysqli_real_escape_string($con,$_POST['psw-repeat']);
+        $re_pwd = hash('md5', $re_pwd);
 
         if ($name == '' || $password =='' || $re_pwd == '' || $email == '') {
           echo "Bạn cần nhập đầy đủ thông tin !";

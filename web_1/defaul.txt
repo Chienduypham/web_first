@@ -1,0 +1,21 @@
+- Lấy tên file :
+	basename($_FILES['fileUpload']['name'])
+
+- Lấy đuôi mở rộng :
+	pathinfo($_FILE['fileUpload']['name'], PATHINFO_EXTENSION)
+
+- Tạo đường dẫn chứa file upload :
+	$tardet_dir = 'uploads/'
+
+- Đường dẫn file sau khi upload :
+	$target_file = $target_dir.basename($_FILES['fileUpload']['name'])
+	
+- is_file($path): trả về TRUE nếu $path tồn tại và là một file
+
+- is_dir($path): trả về TRUE nếu $path tồn tại và là một thư mục
+
+- file_exists($path): trả về TRUE nếu $path tồn tại và là một file hoặc thư mục
+
+- getcwd(): trả về chuỗi biểu diễn thư mục hiện tại đang làm việc
+
+- scandir($path): trả về một mảng chứa danh sách file và thư mục trong đường dẫn $path nếu $path là tên 1 thư mục tồn tại, nếu không trả về FALSE

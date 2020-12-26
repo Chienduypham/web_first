@@ -4,30 +4,30 @@
 
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {
 		if (!empty($_POST)) {
+			$con = mysqli_connect("localhost", "root", "", "myblog");
+
 			$email = $_POST['email'];
-			$password = $_POST['password'];
 
-			$email = strip_tags($email);
-			$email = addslashes($email);
-			$password = strip_tags($password);
-			$password = addslashes($password);
-
+			$password = md5($_POST['password']);
+			
 		    $sql = "select * from users where email = '".$email."' and password = '".$password."'";
+
+		    $email = mysqli_real_escape_string($con,$email);
+			$password = mysql_real_escape_string($con,$password);
+			
 		    $data = excuteResult($sql);
-		  
+
 		  if ($data !== null && count($data) > 0) {
 			$_SESSION['email'] = $_POST['email'];
 			$_SESSION['password'] = $_POST['password'];
-			if ($_POST['email'] == 'cp0830992@gmail.com' && $_POST['password'] == 'Chien254' ) {
-				header('Location: ../admin/category/index.php');
-			}else{
-				header('Location: ../public/content.php');
+			
+			header('Location: ../public/content.php');
 			}
 		  	
 		  }
 				
 		}
-	}
+	
 		
 
  ?>
